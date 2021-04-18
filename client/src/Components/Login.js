@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
+import './Style.css';
+import { Form, FormGroup, Label, Input } from 'reactstrap';
 
 class Login extends Component {
     constructor() {
@@ -37,7 +39,7 @@ class Login extends Component {
                 })
                 // update the state to redirect to home
                 this.setState({
-                    redirectTo: '/'
+                    redirectTo: '/home'
                 })
             }
         }).catch(error => {
@@ -53,49 +55,29 @@ class Login extends Component {
         return (
             <>
             
-                <div>
-                    <h4>Login</h4>
-                    <form className="form-horizontal">
-                        <div className="form-group">
-                            <div className="col-1 col-ml-auto">
-                                <label className="form-label" htmlFor="username">Username</label>
-                            </div>
-                            <div className="col-3 col-mr-auto">
-                                <input className="form-input"
-                                    type="text"
-                                    id="username"
-                                    name="username"
-                                    placeholder="Username"
-                                    value={this.state.username}
-                                    onChange={this.handleChange}
-                                />
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <div className="col-1 col-ml-auto">
-                                <label className="form-label" htmlFor="password">Password: </label>
-                            </div>
-                            <div className="col-3 col-mr-auto">
-                                <input className="form-input"
-                                    placeholder="password"
-                                    type="password"
-                                    name="password"
-                                    value={this.state.password}
-                                    onChange={this.handleChange}
-                                />
-                            </div>
-                        </div>
-                        <div className="form-group ">
-                            <div className="col-7"></div>
-                            <button
-                                className="btn btn-primary col-1 col-mr-auto"
-                               
-                                onClick={this.handleSubmit}
-                                type="submit">Login</button>
-                        </div>
-                    </form>
-                    <Link to="/signup" >Signup</Link>
-                </div>
+                <>
+                    <Form className="login-form">
+                    <h1 className="text-center font-weight-bold">Login</h1>
+                        <FormGroup>
+                            <Label >Email</Label>
+                            <Input type="email" name="username"
+							value={this.state.username}
+							onChange={this.handleChange} id="username" placeholder="Email" />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>Password</Label>
+                            <Input placeholder="password"
+							type="password"
+							name="password"
+							value={this.state.password}
+							onChange={this.handleChange} />
+                        </FormGroup>
+                        <button className="btn-lg btn-primary btn-block"
+						onClick={this.handleSubmit}
+						type="submit">Login</button><br/>
+                        <Link to="/signup" >Signup</Link>
+                    </Form>
+                </>
             </>
         )
     }

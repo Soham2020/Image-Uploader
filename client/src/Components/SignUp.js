@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './Style.css';
 
 class SignUp extends Component {
     constructor() {
@@ -47,9 +48,9 @@ class SignUp extends Component {
     render() {
         return (
             <>
-                <h1>Signup Form</h1>
                 <div className="signup">
-                    <Form>
+                    <Form className="login-form">
+                    <h1 className="text-center font-weight-bold">Signup Form</h1>
                         <FormGroup>
                             <Label >Email</Label>
                             <Input type="email" name="username"
@@ -64,11 +65,11 @@ class SignUp extends Component {
 							value={this.state.password}
 							onChange={this.handleChange} />
                         </FormGroup>
-                        <button className="btn btn-primary col-1 col-mr-auto"
+                        <button className="btn-lg btn-success btn-block"
 						onClick={this.handleSubmit}
-						type="submit">Submit</button>
+						type="submit">Submit</button><br/>
+                        <Link to="/login">Login</Link>
                     </Form>
-                    <Link to="/login" >Login</Link>
                 </div>
             </>
         )
