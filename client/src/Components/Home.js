@@ -1,16 +1,12 @@
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import FileUpload from "./FileUpload";
 
 export default function Home () {
-    const notify = () => toast("Wow so easy!");
     return (
         <>
-            <h1>Home Page</h1>
-            <div>
-        <button onClick={notify}>Notify!</button>
-        <ToastContainer />
-      </div>
+            <h4 className='display-4 text-center mb-4'>
+            <i class="far fa-image"></i> React File Upload
+            </h4>
+            <FileUpload />
         </>
     )
 }

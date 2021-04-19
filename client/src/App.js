@@ -49,9 +49,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.loggedIn &&
-          <Home />
-        }
+        <div className="container mt-4">
+          {this.state.loggedIn &&
+            <Home />
+          }
+        </div>
         {/* Routes to different components */}
         <BrowserRouter>
           <Switch>
