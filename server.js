@@ -6,6 +6,7 @@ const passportLocal = require('passport-local').Strategy;
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
+const fileUpload = require('express-fileupload');
 const User = require('./user');
 dotenv.config({ path: './config.env' });
 
@@ -25,6 +26,7 @@ mongoose.connect(DB, {
   
 
 app.use(express.json());
+app.use(fileUpload());
 
 app.use(
     session({
@@ -82,8 +84,20 @@ app.delete('/logout/:id', async (req, res) => {
     }
 })
 
-app.get('/user', checkAuthenticated, (req, res) => {
-    res.send(req.user);
+app.post('/upload', checkAuthenticated, (req, res) => {
+    if( req.files === null ){
+        return res.status(404).json({ msg: "No file upload!!" })
+    }
+
+    const file = req.files.file;
+
+    file.mv(`${__dirname}/client/public/upload/${file.name}`, err => {
+        if(err) {
+            console.error(err);
+            return res.status(500).send(err);
+        }
+        res.json({ fileName: file.name, filePath: `/upload/${file.name}` });
+    })
 })
 
 function checkAuthenticated(req, res, next) {
