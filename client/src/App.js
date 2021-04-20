@@ -68,7 +68,7 @@ class App extends Component {
             />}
         />
         <Route exact
-          path="/signup"
+          path="/"
           render={() =>
             <Signup/>}
         />

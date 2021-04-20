@@ -50,6 +50,7 @@ class SignUp extends Component {
             <>
                 <div className="signup">
                     <Form className="login-form">
+                        <div className="shadow-lg p-3 rounded">
                     <h1 className="text-center font-weight-bold">Signup Form</h1>
                         <FormGroup>
                             <Label >Email</Label>
@@ -69,6 +70,7 @@ class SignUp extends Component {
 						onClick={this.handleSubmit}
 						type="submit">Submit</button><br/>
                         <Link to="/login">Login</Link>
+                        </div>
                     </Form>
                 </div>
             </>

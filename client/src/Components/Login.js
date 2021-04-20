@@ -53,10 +53,9 @@ class Login extends Component {
             return <Redirect to={{ pathname: this.state.redirectTo }} />
         }
         return (
-            <>
-            
                 <>
                     <Form className="login-form">
+                    <div className="shadow-lg p-3 rounded">
                     <h1 className="text-center font-weight-bold">Login</h1>
                         <FormGroup>
                             <Label >Email</Label>
@@ -75,10 +74,10 @@ class Login extends Component {
                         <button className="btn-lg btn-primary btn-block"
 						onClick={this.handleSubmit}
 						type="submit">Login</button><br/>
-                        <Link to="/signup" >Signup</Link>
+                        <Link to="/" >Signup</Link>
+                        </div>
                     </Form>
                 </>
-            </>
         )
     }
 }

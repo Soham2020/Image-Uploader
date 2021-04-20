@@ -75,12 +75,21 @@ app.post("/register", (req, res, next) => {
     });
 });
 
-app.delete('/logout/:id', async (req, res) => {
-    try {
-        await User.findByIdAndDelete(req.params.id);
-        res.json({ msg: "User removes!!" })
-    } catch(err) {
-        return res.status(500).json({msg: err.message});
+// app.delete('/logout/:id', async (req, res) => {
+//     try {
+//         await User.findByIdAndDelete(req.params.id);
+//         res.json({ msg: "User removes!!" })
+//     } catch(err) {
+//         return res.status(500).json({msg: err.message});
+//     }
+// })
+
+app.post('/logout', (req, res) => {
+    if (req.user) {
+        req.logout()
+        res.send({ msg: 'logging out' })
+    } else {
+        res.send({ msg: 'no user to log out' })
     }
 })
 
