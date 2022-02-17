@@ -52,7 +52,8 @@ npm run dev
 <br/>
 
 # LICENSE
-This project is under <a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>. Copyright (c) 2021 Soham Das
+This project is under <a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>. Copyright (c) 2021 Soham Das.
+</br>
 
 ### Conculsion
 A ⭐ will keep me motivated to do such more things
